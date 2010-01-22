@@ -1,3 +1,6 @@
+$:.unshift(File.dirname(__FILE__) + "/../lib")
+require 'active_lucene'
+
 def index_path
   ActiveLucene::Index::PATH
 end
