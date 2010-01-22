@@ -1,6 +1,6 @@
 module ActiveLucene
   module Index
-    PATH = File.expand_path(File.dirname(__FILE__) + "/db/lucene/#{RAILS_ENV rescue ''}")
+    PATH = "#{APP_ROOT}/db/lucene/#{APP_ENV}"
 
     def directory
       FSDirectory.open java.io.File.new(PATH)
