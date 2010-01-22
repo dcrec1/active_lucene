@@ -1,8 +1,48 @@
+h2. ABOUT:
+
+ActiveLucene is an ActiveRecord/ActiveModel's like interface to Apache Lucene, with support for dynamic attributes, pagination, highlighting and Lucene's query syntax.
+
+ActiveLucene was extracted from Lunr:
+
+http://github.com/dcrec1/lunr
+
+ActiveLucene works with JRuby like this:
+
+<pre><code>class Advertise < ActiveLucene::Document
+end
+
+Advertise.create! :param1 => 'value 1', :param2 => 'value 2'
+
+Advertise.find :all
+Advertise.find "5"
+
+Advertise.search "value*"
+Advertise.search "param2:'value 2' AND param3:lorem"
+Advertise.search "param2:value OR param3:lorem"
+
+Advertise.search :param1 => 'value 1', :param2 => 'value'
+
+Advertise.serach(:param1 => 'va?ue').first.highlight
+
+Advertise.serach(:param1 => 'va?ue').total_pages</code></pre>
+
+Advertise#search accepts as a parameter any query supported by Lucene. For more information:
+
+http://lucene.apache.org/java/2_3_2/queryparsersyntax.html
+
+Note that you don't need to specify attributes, they are dynamic!
+
+The pagination is supposed to be compatible with will_paginate:
+
+http://github.com/mislav/will_paginate
+
+For more examples, please refer to the specs.
+
 h2. LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 FIX
+Copyright (c) 2010
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
