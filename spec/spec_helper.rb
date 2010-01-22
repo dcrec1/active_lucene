@@ -1,5 +1,5 @@
 def index_path
-  Lunr::Index::PATH
+  ActiveLucene::Index::PATH
 end
 
 def clean_index

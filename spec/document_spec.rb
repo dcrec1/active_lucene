@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-class Advertise < Lunr::Document
+class Advertise < ActiveLucene::Document
 end
 
 describe Document do
