@@ -18,7 +18,7 @@ spec = Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.summary = SUMMARY
   s.require_paths = ['lib']
-  s.files = FileList['lib/**/*.rb', '[A-Z]*'].to_a
+  s.files = FileList['lib/**/*', '[A-Z]*'].to_a
   
   s.author = AUTHOR
   s.email = EMAIL
