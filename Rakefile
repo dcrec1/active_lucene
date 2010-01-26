@@ -5,11 +5,11 @@ require 'rake/gempackagetask'
 require 'spec/rake/spectask'
  
 GEM = "active_lucene"
-GEM_VERSION = "0.2.0"
-SUMMARY = "FIXME Summary"
-AUTHOR = "FIXME Author"
-EMAIL = "FIXME Email"
-HOMEPAGE = "FIXME HomePage"
+GEM_VERSION = "0.5.0"
+SUMMARY = "ActiveRecord/ActiveModel's like interface for Lucene"
+AUTHOR = "Diego Carrion"
+EMAIL = "dc.rec1@gmail.com"
+HOMEPAGE = "http://www.diegocarrion.com"
 
  
 spec = Gem::Specification.new do |s|
@@ -23,8 +23,6 @@ spec = Gem::Specification.new do |s|
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
-
-  s.rubyforge_project = GEM # GitHub bug, gem isn't being build when this miss
 end
 
 Spec::Rake::SpecTask.new do |t|
