@@ -5,7 +5,7 @@ require 'rake/gempackagetask'
 require 'spec/rake/spectask'
 
 GEM = "active_lucene"
-GEM_VERSION = "0.5.1"
+GEM_VERSION = "0.5.2"
 SUMMARY = "ActiveRecord/ActiveModel's like interface for Lucene"
 AUTHOR = "Diego Carrion"
 EMAIL = "dc.rec1@gmail.com"
