@@ -20,8 +20,13 @@ import org.apache.lucene.search.highlight.Highlighter
 
 import org.apache.lucene.util.Version
 
-APP_ROOT ||= RAILS_ROOT if defined?(RAILS_ROOT)
-APP_ENV ||= RAILS_ENV if defined?(RAILS_ENV)
+if defined? RAILS_ROOT
+  APP_ROOT = RAILS_ROOT
+  APP_ENV  = RAILS_ENV
+else
+  APP_ROOT ||= '.'
+  APP_ENV  ||= 'default'
+end
 
 %w(analyzer document index query searcher term writer).each { |name| require "active_lucene/#{name}" }
 
