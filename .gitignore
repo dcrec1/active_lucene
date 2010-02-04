@@ -1,3 +1,4 @@
 active_lucene.gemspec
 pkg
 spec/db
+db
