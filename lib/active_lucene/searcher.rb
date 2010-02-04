@@ -9,7 +9,7 @@ module ActiveLucene
     end
 
     def search(param)
-      search_result = SearchResult.new
+      search_result = SearchResult.new param
       query = Query.for(param)
       top_docs = super(query, nil, Document::PER_PAGE)
       top_docs.scoreDocs.each do |score_doc|

@@ -2,11 +2,19 @@ require 'java'
 require 'rubygems'
 require 'active_support'
 
-Dir[File.expand_path(File.dirname(__FILE__) + "/*.jar")].each { |path| require path.split('/').last.gsub('.jar', '') }
+Dir[File.expand_path(File.dirname(__FILE__) + "/*.jar")].each do |path| 
+  require path.split('/').last.gsub('.jar', '')
+end
+
 import org.apache.lucene.document.Field
+
 import org.apache.lucene.store.FSDirectory
+
+import org.apache.lucene.index.IndexReader
 import org.apache.lucene.index.IndexWriter
+
 import org.apache.lucene.analysis.standard.StandardAnalyzer
+
 import org.apache.lucene.queryParser.standard.StandardQueryParser
 
 import org.apache.lucene.search.IndexSearcher
@@ -26,12 +34,14 @@ import org.apache.lucene.util.Version
 if defined? RAILS_ROOT
   APP_ROOT = RAILS_ROOT
   APP_ENV  = RAILS_ENV
-else
-  APP_ROOT ||= '.'
-  APP_ENV  ||= 'default'
+elsif not defined? APP_ROOT
+  APP_ROOT = '.'
+  APP_ENV  = 'default'
 end
 
-%w(analyzer document index query searcher term writer search_result).each { |name| require "active_lucene/#{name}" }
+%w(analyzer document index dictionary query reader search_result searcher suggest term writer).each do |name| 
+  require "active_lucene/#{name}"
+end
 
 module ActiveLucene
   ID = 'id'

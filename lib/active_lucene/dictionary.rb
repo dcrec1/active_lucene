@@ -1,7 +1,7 @@
 module ActiveLucene
-  module Index
-    PATH = "#{APP_ROOT}/db/lucene/#{APP_ENV}"
-
+  module Dictionary
+    PATH = "#{Index::PATH}/dictionary"
+    
     def directory
       FSDirectory.open java.io.File.new(PATH)
     end
