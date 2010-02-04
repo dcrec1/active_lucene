@@ -15,6 +15,9 @@ import org.apache.lucene.search.BooleanQuery
 import org.apache.lucene.search.MatchAllDocsQuery
 import org.apache.lucene.search.WildcardQuery
 
+import org.apache.lucene.search.spell.LuceneDictionary;
+import org.apache.lucene.search.spell.SpellChecker;
+
 import org.apache.lucene.search.highlight.QueryScorer
 import org.apache.lucene.search.highlight.Highlighter
 

@@ -24,6 +24,5 @@ module ActiveLucene
       search_result.total_pages = (top_docs.totalHits / Document::PER_PAGE.to_f).ceil
       search_result
     end
-
   end
 end
