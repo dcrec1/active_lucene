@@ -19,11 +19,7 @@ spec = Gem::Specification.new do |s|
   s.summary = SUMMARY
   s.require_paths = ['lib']
   s.files = FileList['lib/**/*', '[A-Z]*'].to_a
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 0d5cb38486ff72986e835cccf3c16067b39c97f2
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
