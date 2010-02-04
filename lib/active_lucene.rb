@@ -28,9 +28,10 @@ else
   APP_ENV  ||= 'default'
 end
 
-%w(analyzer document index query searcher term writer).each { |name| require "active_lucene/#{name}" }
+%w(analyzer document index query searcher term writer search_result).each { |name| require "active_lucene/#{name}" }
 
 module ActiveLucene
   ID = 'id'
   ALL = '_all'
+  TYPE = '_type'
 end

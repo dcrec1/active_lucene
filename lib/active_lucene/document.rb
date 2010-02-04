@@ -19,6 +19,7 @@ module ActiveLucene
       end
       document.add Field.new ID, @id, Field::Store::YES, Field::Index::NOT_ANALYZED
       document.add Field.new ALL, _all.join(' '), Field::Store::NO, Field::Index::ANALYZED
+      document.add Field.new TYPE, self.class.to_s, Field::Store::YES, Field::Index::NOT_ANALYZED
       Writer.write document
     end
 
@@ -51,10 +52,7 @@ module ActiveLucene
     end
 
     def self.search(param)
-      search = Searcher.search(param)
-      results = search.attributes.map { |attributes| new attributes }
-      results.instance_eval "def total_pages; #{search.total_pages}; end;"
-      results
+      Searcher.new.search(param)
     end
 
     def self.columns

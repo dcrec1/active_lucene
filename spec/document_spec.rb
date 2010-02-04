@@ -20,9 +20,8 @@ describe Advertise do
     end
 
     it "should search by :attribute => 'value'" do
-      name = "search lucene"
-      save :name => name
-      Advertise.search(:name => "lucene").first.name.should eql(name)
+      Advertise.create! :name => "search lucene"
+      Advertise.search(:name => "lucene").first.name.should eql("search lucene")
     end
 
     it "should be created" do
@@ -38,8 +37,8 @@ describe Advertise do
     end
 
     it "should search multiple documents" do
-      save :place => "Rio de Janeiro"
-      save :place => "Rio Amazonas"
+      Advertise.create! :place => "Rio de Janeiro"
+      Advertise.create! :place => "Rio Amazonas"
       Advertise.search(:place => "rio").last.place.should eql("Rio Amazonas")
     end
 
@@ -145,6 +144,11 @@ describe Advertise do
 
     it "should not loose id on update" do
       Advertise.create!(:id => "9").update_attributes!(:company => "MouseOver Studio").id.should eql("9")
+    end
+    
+    it "should suggest a query to search" do
+      Advertise.create!(:title => "ruby for dummies")
+      Advertise.search("rubi for dumies").suggest.should eql("ruby for dummies")
     end
   end
 end

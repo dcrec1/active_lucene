@@ -37,13 +37,3 @@ def search(params)
     searcher.doc score_doc.doc
   end
 end
-
-def save(attributes)
-  writer = get_writer
-  document = org.apache.lucene.document.Document.new
-  attributes.stringify_keys.each do |key, value|
-    document.add get_field(key, value)
-  end
-  writer.add_document document
-  writer.close
-end
