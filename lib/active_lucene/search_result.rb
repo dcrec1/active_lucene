@@ -15,7 +15,7 @@ module ActiveLucene
     
     def suggest
       spell_checker = SpellChecker.new directory
-      spell_checker.index_dictionary LuceneDictionary.new(Reader.open, ALL)
+      spell_checker.index_dictionary LuceneDictionary.new(Index::Reader.open, ALL)
       query.split(' ').map do |word|
         spell_checker.suggest_similar(word, 1).first || word
       end.join(' ')

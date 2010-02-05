@@ -20,11 +20,11 @@ module ActiveLucene
       document.add Field.new ID, @id, Field::Store::YES, Field::Index::NOT_ANALYZED
       document.add Field.new ALL, _all.join(' '), Field::Store::NO, Field::Index::ANALYZED
       document.add Field.new TYPE, self.class.to_s, Field::Store::YES, Field::Index::NOT_ANALYZED
-      Writer.write document
+      Index::Writer.write document
     end
 
     def destroy
-      Writer.delete @id
+      Index::Writer.delete @id
     end
 
     def update_attributes(new_attributes)
@@ -52,7 +52,7 @@ module ActiveLucene
     end
 
     def self.search(param)
-      Searcher.search(param)
+      Index::Searcher.search(param)
     end
 
     def self.columns

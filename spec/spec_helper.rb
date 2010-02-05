@@ -3,6 +3,7 @@ $:.unshift(File.dirname(__FILE__) + "/../lib")
 APP_ROOT = File.dirname(__FILE__)
 APP_ENV = 'test'
 
+require 'rubygems'
 require 'active_lucene'
 
 def index_path
