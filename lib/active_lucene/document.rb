@@ -52,7 +52,7 @@ module ActiveLucene
     end
 
     def self.search(param)
-      Searcher.new.search(param)
+      Searcher.search(param)
     end
 
     def self.columns
