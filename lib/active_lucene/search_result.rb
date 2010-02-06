@@ -24,5 +24,9 @@ module ActiveLucene
     def previous_page
       @current_page - 1
     end
+    
+    def next_page
+      @current_page + 1
+    end
   end
 end

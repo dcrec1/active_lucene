@@ -185,5 +185,10 @@ describe Advertise do
       Advertise.create!
       Advertise.search("whatever", :page => 5).previous_page.should == 4
     end
+    
+    it "should return the next page of the current one" do
+      Advertise.create!
+      Advertise.search("whatever", :page => 5).next_page.should == 6
+    end
   end
 end
