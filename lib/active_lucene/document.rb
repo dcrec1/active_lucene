@@ -36,8 +36,12 @@ module ActiveLucene
     def to_param
       @id
     end
+    
+    def self.all
+      find :all
+    end
 
-    def self.create!(attributes)
+    def self.create!(attributes = {})
       returning new(attributes) do |model|
         model.save
       end
@@ -51,8 +55,8 @@ module ActiveLucene
       end
     end
 
-    def self.search(param)
-      Index::Searcher.search(param)
+    def self.search(param, opts = {})
+      Index::Searcher.search(param, opts)
     end
 
     def self.columns

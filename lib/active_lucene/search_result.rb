@@ -3,7 +3,7 @@ module ActiveLucene
     include Dictionary
     
     attr_reader :query
-    attr_accessor :total_pages
+    attr_accessor :total_pages, :current_page
     
     def initialize(query)
       @query = query
