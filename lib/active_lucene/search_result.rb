@@ -20,5 +20,9 @@ module ActiveLucene
         spell_checker.suggest_similar(word, 1).first || word
       end.join(' ')
     end
+    
+    def previous_page
+      @current_page - 1
+    end
   end
 end
