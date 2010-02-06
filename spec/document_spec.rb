@@ -190,5 +190,10 @@ describe Advertise do
       Advertise.create!
       Advertise.search("whatever", :page => 5).next_page.should == 6
     end
+    
+    it "should return on paginate all documents given a page" do
+      (Advertise::PER_PAGE + 1).times { |i| Advertise.create! :title => "advertise #{i}" }
+      Advertise.paginate(:page => 2).first.title.should eql("advertise #{Advertise::PER_PAGE}")
+    end
   end
 end

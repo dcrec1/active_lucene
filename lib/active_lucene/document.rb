@@ -37,8 +37,8 @@ module ActiveLucene
       @id
     end
     
-    def self.all
-      find :all
+    def self.all(opts = {})
+      find :all, opts
     end
 
     def self.create!(attributes = {})
@@ -47,9 +47,9 @@ module ActiveLucene
       end
     end
 
-    def self.find(param)
+    def self.find(param, opts = {})
       if param.instance_of? Symbol
-        search :all
+        search :all, opts
       else
         search(:id => param).first
       end
@@ -61,6 +61,10 @@ module ActiveLucene
 
     def self.columns
       []
+    end
+    
+    def self.paginate(opts)
+      all opts
     end
 
     private
