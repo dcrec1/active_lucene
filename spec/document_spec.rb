@@ -170,5 +170,10 @@ describe Advertise do
       Advertise.create!
       Advertise.all.current_page.should == 1
     end
+    
+    it "should return the documents for the current page" do
+      (Advertise::PER_PAGE + 1).times { |i| Advertise.create! :title => "advertise #{i}" }
+      Advertise.search("advertise", :page => 2).first.title.should eql("advertise #{Advertise::PER_PAGE}")
+    end
   end
 end
