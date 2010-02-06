@@ -175,5 +175,10 @@ describe Advertise do
       (Advertise::PER_PAGE + 1).times { |i| Advertise.create! :title => "advertise #{i}" }
       Advertise.search("advertise", :page => 2).first.title.should eql("advertise #{Advertise::PER_PAGE}")
     end
+    
+    it "should accept the page as a string" do
+      Advertise.create!
+      Advertise.search("empty", :page => '2').should be_empty
+    end
   end
 end
