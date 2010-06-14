@@ -1,3 +1,4 @@
+require 'java'
 require 'active_support'
 require 'java_classes'
 
