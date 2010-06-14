@@ -1,9 +1,9 @@
 require 'active_support'
 require 'java_classes'
 
-if defined? RAILS_ROOT
-  APP_ROOT = RAILS_ROOT
-  APP_ENV  = RAILS_ENV
+if defined? Rails.root
+  APP_ROOT = Rails.root
+  APP_ENV  = Rails.env
 elsif not defined? APP_ROOT
   APP_ROOT = '.'
   APP_ENV  = 'default'
